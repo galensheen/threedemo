@@ -1,0 +1,19 @@
+{
+  "name": "threedemo",
+  "version": "1.0.0",
+  "description": "几个three.js的demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galensheen/threedemo.git"
+  },
+  "author": "Galen Sheen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/galensheen/threedemo/issues"
+  },
+  "homepage": "https://github.com/galensheen/threedemo#readme"
+}
