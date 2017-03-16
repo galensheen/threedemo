@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Through</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0"/>
+    <script src="http://cdn.bootcss.com/three.js/r83/three.min.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/KeyboardState.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #000;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        margin: 0 auto;
+        top: 50px;
+      }
+      .score-container {
+        position: absolute;
+        width: 100%;
+        top: 10px;
+        right: 10px;
+        transition: transform 0.5s 4s;
+      }
+      .score-container #score {
+        color: white;
+        text-align: center;
+        font-size: 8vh;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="score-container">
+      <div id="score"></div>
+    </div>
+    <!--<div id="message" style="color:green; background-color: #a06cc2"></div>-->
+    <div id="ThreeJS"></div>
+
+    <audio src="./sound/explode.mp3" preload="auto" id="explode_sound"></audio>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>bang</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        height: 100%;
+        position: relative;
+      }
+      #target {
+        position: absolute;
+        background: red;
+        top: 200px;
+        height: 30px;
+        width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="acc"></div>
+    <div id="acc2"></div>
+    <div id="target"></div>
+    <script>
+      var acc = document.querySelector('#acc');
+      var acc2 = document.querySelector('#acc2');
+      var target = document.querySelector('#target');
+      target.style.left = (window.innerWidth - 30) / 2 + 'px';
+      var a = 0;
+      if(window.DeviceMotionEvent) {
+
+        window.addEventListener('devicemotion', function(event){
+          var acceleration = event.accelerationIncludingGravity;
+          a = acceleration.x || 0;
+          var x = acceleration.x || 0;
+//          var y = acceleration.y || 0;
+//          var z = acceleration.z || 0;
+          acc.innerHTML = 'x: ' + x;
+//
+//          var rotation = event.rotationRate;
+//          var alpha = rotation.alpha || 0;
+//          var beta = rotation.beta || 0;
+//          var gamma = rotation.gamma || 0;
+//          acc2.innerHTML = 'alpha: ' + alpha + '<br/>beta: ' + beta + '<br/>gamma: ' + gamma;
+//          console.log(event);
+
+        }, false);
+      }
+
+      function run() {
+        requestAnimationFrame(run);
+        var x = parseInt(target.style.left);
+        if ((x < 0 && a > 0) || (x > window.innerWidth - 30 && a < 0)) return;
+        x -= 1.5 * a;
+        target.style.left = parseInt(x) + 'px';
+      }
+      run();
+    </script>
+  </body>
+</html>
